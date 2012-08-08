@@ -1,0 +1,105 @@
+<%= form_tag fill_products_path, method: :post, class: "fill-fields", remote: true do %>
+	<%= content_tag :div, class: "field" do %>
+		<%= label_tag :tmdb_url, "TMdb Link'i:" %>
+		<%= url_field_tag :tmdb_url %>
+		<%= submit_tag "Gönder" %>
+	<% end %>
+	
+	<%= content_tag :div, "", class: "cleaner"%>
+<% end %>
+
+<%= form_for @product, html: { multipart: true }, class: "movie-form" do |f| %>
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :title, "İsim:" %><br />
+		<%= f.text_field :title %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :imdb_score, "IMdb Skoru:" %><br />
+		<%= f.text_field :imdb_score %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :year, "Sene:" %><br />
+		<%= f.date_select :year, discard_month: true, discard_day: true, include_blank: true, start_year: (Date.current.year + 2), end_year: 1900 %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= content_tag :div, "UYARI: Birden fazlaysa virgülle ayırınız. Örnek: \"Natalie Portman, Scarlett Johansson, Andrei Zvyagintsev, Fatih Akin\"", class: "note" %>
+		<%= f.label :director, "Yönetmen:" %><br />
+		<%= f.text_field :director %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= content_tag :div, "Örnek: \"İngilizce, Türkçe, Almanca, Rusça\"", class: "note" %>
+		<%= f.label :language, "Diller:" %><br />
+		<%= f.text_field :language %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= content_tag :div, "UYARI: Birden fazlaysa virgülle ayırınız. Örnek: \"Rachel Weisz, Adrien Broody, Mark Ruffalo, Rinko Kikuchi\"", class: "note" %>
+		<%= f.label :actors, "Oyuncular:" %><br />
+		<%= f.text_field :actors %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= content_tag :div, "UYARI: İsterseniz bilgisayardan yükleyin isterseniz resmin web adresini verin. Fakat ikisini bir arada kullanmayın." %>
+		<%= f.label :poster, "Görsel:" %><br />
+		<%= f.file_field :poster %><br />
+		URL: &nbsp&nbsp<%= f.text_field :remote_poster_url %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :trailer_url, "Fragman Linki:" %><br />
+		<%= f.text_field :trailer_url %>
+	<% end %>
+	
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :duration, "Süre:" %><br />
+		<%= f.number_field :duration %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :normal_price, "Normal Fiyat:" %><br />
+		<%= f.text_field :normal_price %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :discount_price, "İndirimli Fiyat:" %><br />
+		<%= f.text_field :discount_price %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :summary, "Konu:" %><br />
+		<%= f.text_area :summary %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= hidden_field_tag "product[category_ids][]", nil %>
+		<% Category.all.in_groups_of(3,false) do |group| %>
+			<% group.each do |category| %>
+			    	<%= check_box_tag "product[category_ids][]", category.id, @product.category_ids.include?(category.id), id: dom_id(category) %>
+			    	<%= label_tag dom_id(category), category.screen_name %>
+			<% end %><br />
+	  	<% end %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.check_box :blue %><%= f.label :blue, "Blue Ray ise işaretleyin."%>
+	<% end %>
+	
+	<%= f.hidden_field :product_type, value: @type %>
+	
+	<%= content_tag :div, class: "actions field" do %>
+		<%= f.submit "Kaydet" %>
+	<% end %>
+	
+	<% unless f.object.new_record? %>
+		<%= content_tag :div, class: "email-image" do %>
+			Email için 138x193 boyutundaki poster:<br /><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= image_tag f.object.poster_url(:email).to_s %><br /><br />
+			<%= content_tag :span, "URL:" %><input type="text" style="width:200px;" value="<%= "http://#{request.host}:#{request.port}" << f.object.poster_url(:email).to_s%>">
+		<% end %>
+	<% end %>
+<% end %>

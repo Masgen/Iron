@@ -1,0 +1,328 @@
+// Place all the styles related to the HomePages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body#home_pages-controller {
+	position:relative;
+	
+	#administration-links {
+		width: 200px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 20px;
+		
+		a {z-index: 10000;}
+	}
+	
+	#administration {
+		width: 1000px;
+		position: relative;
+		margin-left: auto;
+		margin-right:auto;
+		
+		div {
+			padding-top: 5px;
+			font-size: 16px;
+			margin-left: auto;
+			margin-right: auto;
+			width:250px;
+			text-align: center;
+			
+			&:hover { text-decoration: underline;}
+		}
+	}
+	
+	#new-products {
+		padding-bottom:30px;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		width: 900px;
+		height: 390px;
+		
+		#new-releases-title {
+			position: absolute;
+			padding-top: 5px;
+			padding-left: 20px;
+			right: -40px;
+			bottom: 0;
+			background: url("home_page/new_releases_bg.png") no-repeat;
+			height: 24px;
+			width:314px;
+			text-shadow: 1px 1px 1px #000;
+		}
+		
+		#new-movie-trailer {
+			-webkit-box-shadow: 2px 2px 8px 2px black;
+			-moz-box-shadow: 2px 2px 8px 2px black;
+			box-shadow: 2px 2px 8px 2px black;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			position: relative;
+			font-size: 12px;
+			width: 565px;
+			height: 380px;
+			background-image: url("home_page/trailer_bg.png");
+			background-repeat: repeat-y;
+			
+			iframe {
+				padding-top: 5px;
+				padding-left: 5px;
+			}
+			
+			#info {
+				padding: 6px 0 5px 5px;
+				
+				.cast {
+					font-size: 10px;
+				}
+			}
+			float: left;
+		}
+		
+		#new-products-slides {
+			-webkit-box-shadow: 2px 2px 8px 2px black;
+			-moz-box-shadow: 2px 2px 8px 2px black;
+			box-shadow: 2px 2px 8px 2px black;
+			height: 380px;
+			width: 295px;
+			margin-left: 40px;
+			float: left;
+			background-image: url("home_page/slide_bg_out.png");
+			background-repeat: repeat-y;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			
+			#inner {
+				height: 367px;
+				margin: 5px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
+				border: 1px solid black;
+				background-image: url("home_page/slide_bg_in.png");
+				background-repeat: no-repeat;
+				overflow: hidden;
+				
+				#limit {
+					height: 367px;
+					
+					.single-slide {
+						height: 367px;
+						width: 283px;
+						float: left;
+						
+						.poster {
+							margin-left:auto;
+							margin-right: auto;
+							width: 150px;
+							padding-top: 10px;
+							padding-bottom: 10px;
+						}
+						
+						.movie {
+							width:700px;
+							margin-top:7px;
+							border-top: 2px orange solid;
+							border-bottom: 2px #AA6F00 solid;
+							padding: 10px 0 10px 10px;
+							
+							.text {
+								width: 270px;
+								height: 68px;
+								
+								.cast {
+									padding-top: 2px;
+									font-size: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#featured-form {
+		width: 500px;
+		text-align: center;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 30px;
+	}
+	
+	#featured-items {
+		width: 600px;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		
+		.title a {
+			color: orange;
+		}
+	}
+	
+	#discounted-movies, #future-releases {
+		text-shadow: 1px 1px 1px #000;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1000px;
+		padding-top: 15px;
+		height: 200px;
+		
+		.left {
+			position: absolute;
+			left: 70px;
+			cursor: pointer;
+		}
+		
+		.right {
+			position: absolute;
+			right: 70px;
+			cursor: pointer;
+		}
+		
+		.limit-wrapper {
+			width: 790px;
+			height: 140px;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			overflow: hidden;
+			
+			.limit {
+				height: 140px;
+				.slide {
+					position: relative;
+					float: left;
+					margin-left: 15px;
+            
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+	
+	#future-releases-wrapper {
+		background: url("home_page/huzme.png") no-repeat 0px 50px;
+		margin-left: auto;
+		margin-right:auto;
+		width:1024px;
+		position: relative;
+	
+		#future-releases {
+			z-index: 10000;
+			margin-top: 20px;
+			background-image: url("home_page/coming_up.png");
+			background-repeat: no-repeat;
+		
+			.right, .left {
+				top: 100px;
+			}
+		
+			.limit-wrapper {
+				z-index: 10000000;
+				top: 20px;
+			}
+		
+			#title-top {
+				position: relative;
+				top: -5px;
+				text-align: center;
+				width: 200px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+	
+	#discounted-movie-wrapper {
+		background: url("home_page/huzme.png") no-repeat 0px 10px;
+		margin-left: auto;
+		margin-right:auto;
+		width:1024px;
+		position: relative;
+		
+		#discounted-movies {
+			margin-bottom:100px;
+			margin-top: 30px;
+			background-image: url("home_page/opportunities.png");
+			background-repeat: no-repeat;
+		
+			.right, .left {
+				top: 100px;
+			}
+		
+			.limit-wrapper {
+				top: 20px;
+			}
+		
+			#title-bottom {
+				position: relative;
+				top: 42px;
+				text-align: center;
+				width: 200px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+	
+	#subscription-wrapper {
+		position: absolute;
+		float:left;
+		left: 50%;
+		
+		#subscription {
+			float: left;
+			left: -50%;
+			position: relative;
+			height: 67px;
+			width: 358px;
+			background: url("home_page/subscription.png") no-repeat;
+
+			#subscribe {
+				cursor: pointer;
+				position: relative;
+				text-align: center;
+				top:5px;
+				text-shadow: 1px 1px 1px #000;
+			}
+
+			form {
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 15px;
+				width: 280px;
+				height: 37px;
+				background: url("home_page/subscription_field.png") no-repeat;
+
+				input[type="text"] {
+					width: 180px;
+					margin-top: 10px;
+					background: transparent;
+					border: 0;
+					color: white;
+					text-shadow: 1px 1px 1px #000;
+				}
+
+				input[type="submit"] {
+					margin-top: 10px;
+					background: url("home_page/subscribe.png") no-repeat;
+					width: 35px;
+					height: 18px;
+					border: 0;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

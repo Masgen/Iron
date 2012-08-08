@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+	<%= content_tag :div, class: "field" do %>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :title_alpha, "Dönen Slide'lar:" %><%= f.text_field :title_omega %>
+	<% end %>
+
+	<%= content_tag :div, class: "field" do %>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :title_alpha, "İlk Slide Gösterisi:" %><%= f.text_field :title_alpha %>
+	<% end %>
+	
+	<%= content_tag :div, class: "field" do %>
+		<%= f.label :title_alpha, "İkinci Slide Gösterisi:" %><%= f.text_field :title_beta %>
+	<% end %>
+	
+	<%= content_tag :div, class: "actions", style: "text-align: center;" do %>
+		<%= f.submit "Kaydet" %>
+	<% end %>
+<% end %>

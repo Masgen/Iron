@@ -1,0 +1,4 @@
+<%= content_tag :div, "Ürünü düzenle", id: "heading" %>
+<%= content_tag :div, link_to("Yönetim sayfasına geri dön", administrate_home_page_path), id: "back-to-administration", class: "underlined" %>
+
+<%= render partial: "#{@type}_form" %>

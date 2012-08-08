@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>IronDVD</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body id="<%= params[:controller].parameterize%>-controller">
+
+		<div id="container">
+			<div id="header">
+				<%= content_tag :div, "", id: "top-orange-bar" %>
+				<div class="content">
+					<%= content_tag :div, "", id: "shiny-logo-bg"%>
+					<%= content_tag :div, link_to(image_tag("header/logo.png"), root_path), class: "logo" %>
+				
+					<%= content_tag :div, "", id: "shiny-menu-bg"%>
+					<%= content_tag :div, id: "navigation" do %>
+						<%= content_tag :ul, id: "menu" do %>
+							<%= content_tag :li, id: "home-page-link", class: "menu-item" do %>
+								<%= link_to content_tag(:div, content_tag(:span, "ANA SAYFA")), root_path %>
+							<% end %>
+							<%= content_tag :li, id: "genres-link", class: "menu-item" do %>
+								<%= content_tag(:div, content_tag(:span, "TÜRLER"), id: "sub-menu-header", class: "middle-item") %>
+								<%= content_tag :ul, class: "sub-menu" do %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("BLUE RAY", products_path(type: "movie", genre: "blue", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("KORKU", products_path(type: "movie", genre: "horror", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("GERİLİM", products_path(type: "movie", genre: "thriller", initial: "a", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("MACERA", products_path(type: "movie", genre: "adventure", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("KOMEDİ", products_path(type: "movie", genre: "comedy", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("ROMANTİK", products_path(type: "movie", genre: "romance", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("DRAMA", products_path(type: "movie", genre: "drama", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("ÇİZGİ FİLM", products_path(type: "movie", genre: "animation", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("BELGESEL", products_path(type: "movie", genre: "documentary", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("TÜRK FİLMİ", products_path(type: "movie", genre: "turk", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("DİZİ", products_path(type: "movie", genre: "serie", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("EROTİK", products_path(type: "movie", genre: "erotic", initial: "a")) %>
+									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("BİLİM KURGU", products_path(type: "movie", genre: "science_fiction")) %>
+									<% end %>
+								<% end %>
+							<% end %>
+							<%= content_tag :li, content_tag(:span, link_to("OYUNLAR", products_path(type: "game", initial: "a"))), id: "games-link", class: "menu-item middle-item" %>
+							<%= content_tag :li, content_tag(:span, link_to("AKSESUARLAR", products_path(type: "accessory", initial: "a"))), id: "accessories-link", class: "menu-item middle-item" %>
+							<%= content_tag :li, id: "search-link", class: "menu-item" do %>
+								<%= form_tag search_products_path, method: :post do %>
+									<%= content_tag :span, text_field_tag(:search, "     ARAMA"), id: "search-field" %>
+									<%= content_tag :span, submit_tag(""), id: "search-submit" %>
+								<% end%>
+							<% end %>
+							<%= content_tag :div, "",class: "cleaner" %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+
+			<div id="body">
+				<%= yield %>
+			</div>
+
+			<div id="footer">
+				<div id="just-above-footer">
+					<div id="just-above-footer3"></div>
+					<div id="just-above-footer2"></div>
+					<div id="just-above-footer1"></div>
+				</div>
+				<div class="content">
+					<%= content_tag :div, link_to(image_tag("footer/logo.png"),root_path), class: "logo" %>
+					<%= content_tag :div, id: "address", style: "text-align:right;" do %>
+						Hacı Emin Efendi Sokak<br />
+						No 19/B<br />
+						Teşvikiye<br />
+						0212 291 70 20
+					<% end %>
+				</div>
+				<div id="bottom-orange-bar">
+					<div id="gummo">COPYRIGHT <a href="http://www.gummo.co/">GUMMO</a> 2012. ALL RIGHTS RESERVED.</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

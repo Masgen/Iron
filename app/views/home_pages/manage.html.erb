@@ -1,0 +1,19 @@
+<%= form_tag add_featured_home_page_path, method: :post, remote: true ,id: "featured-form" do %>
+	<%= content_tag :div, class: "field" do %>
+		<%= label_tag "Ürün ismi:"%>
+		<%= select_tag "product_id", options_for_select(@products.collect {|p| [p.title, p.id]})%>
+		<%= hidden_field_tag :what, @what %>
+		<%= submit_tag "Ekle"%>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, what_heading_helper(@what),id: "heading" %>
+<%= content_tag :div, link_to("Yönetim sayfasına geri dön", administrate_home_page_path), id: "back-to-administration", class: "underlined" %>
+
+<%= content_tag :ul, id: "featured-items" do %>
+	<% if @featured.any? %>
+		<% @featured.each do |f| %>
+			<%= featured_li_helper(f, @what)%>
+		<% end %>
+	<% end %>
+<% end %>

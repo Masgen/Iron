@@ -1,0 +1,357 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+html, body {
+	margin: 0; 
+	padding:0; 
+	color: white; 
+	font-family: Helvetica, Trebuchet, sans-serif;
+	background-image: url("bg.png");
+	background-repeat: repeat-x repeat-y;
+	background-color: #020D44;
+	font-weight: 300;
+	height: 100%;
+	font-size: 14px;
+	
+	a {
+		text-decoration: none;
+		color: white;
+	}
+}
+
+.underlined {
+	text-decoration: underline;
+}
+
+.cleaner {
+  clear: both;
+  font-size: 1px;
+}
+
+#heading {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	text-align: center;
+	font-weight: 500;
+	font-size: 24px;
+	padding-bottom:5px;
+}
+
+#back-to-administration {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#container {
+	min-width: 1024px;
+	min-height:100%;
+	position:relative;
+	
+	#header {
+		padding:0px;
+		
+		#top-orange-bar {
+			height: 16px;
+			background-image: url("header/gradient.png");
+			background-repeat: repeat-x;
+		}
+		
+		.content {
+			width: 1000px;
+			position:relative;
+			margin-left: auto;
+			margin-right: auto;
+			
+			#shiny-logo-bg {
+				left: 9px;
+				position:absolute;
+				height: 94px;
+				top: 20px;
+				width:982px;
+				background-image: url("header/shiny_logo_bg.png");
+			}
+			
+			#shiny-menu-bg {
+				left: 9px;
+				position:absolute;
+				height: 94px;
+				margin-top:15px;
+				width:982px;
+				background-image: url("header/shiny_logo_bg.png");
+				top: 95px;
+			}
+
+			.logo {
+				padding-top: 30px;
+				width: 235px;
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			#navigation {
+				text-shadow: 1px 1px 1px #000;
+				margin-bottom: 30px;
+				position:relative;
+				background: url("header/menu_table.png") no-repeat;
+				width: 880px;
+				height:40px;
+				margin-left: auto;
+				margin-right: auto;
+				
+				#menu {
+					height:30px;
+					top: 10px;
+					position:relative;
+					width:790px;
+					margin-left: auto;
+					margin-right:auto;
+					list-style: none;
+					-webkit-box-shadow: 0 8px 6px -6px black;
+					-moz-box-shadow: 0 8px 6px -6px black;
+					box-shadow: 0 8px 6px -6px black;
+					
+					ul {
+						top: 27px;
+						position:absolute;
+						width: 114px;
+						padding: 5px 0 5px 0;
+						left: -9999px;
+						background: white;
+						list-style:none;
+						border: 1px solid #61CADF;
+						
+						-webkit-border-bottom-right-radius: 5px;
+						-webkit-border-bottom-left-radius: 5px;
+						-moz-border-radius-bottomright: 5px;
+						-moz-border-radius-bottomleft: 5px;
+						border-bottom-right-radius: 5px;
+						border-bottom-left-radius: 5px;
+						
+						-moz-opacity: 0.80;
+						opacity: 0.80;
+						filter: alpha(opacity=80);
+						
+						li {
+							float: none;
+						}
+						
+						a {
+							padding-left: 10px;
+							font-size: 12px;
+							color: black;
+							white-space:nowrap
+						}
+					}
+					
+					#genres-link:hover {
+						
+						ul {
+							left: 221px;
+							z-index:1000000;
+						}
+						
+						li {
+							font-weight: 400;
+							margin: 3px 5px 0 5px;
+							padding-bottom: 3px;
+							border-bottom: 1px solid black;
+							&:hover {background: url("header/sub_gradient.png") repeat-x;}	
+							
+							&:first-child {margin-top: 0;}
+							&:last-child {border: 0;}
+							
+							a {	text-shadow: 0 0 0 #000}
+						}
+						
+						a {
+							text-decoration:underline;
+						}
+						
+						ul a {
+							text-decoration:none;
+						}
+					}
+					
+					#home-page-link {
+						a div {
+							text-align: center;
+							height: 29px;
+							width: 155px;
+							background-image: url("header/menu_left.png");
+
+							span { left: 10px; }
+
+							&:hover {
+								background-image: url("header/menu_left_hover.png");
+							}
+						}
+					}
+
+					#search-link {
+						form {
+							text-align: center;
+							height: 29px;
+							width: 155px;
+							background: url("header/menu_right.png") no-repeat;
+
+							input[type="text"] {
+								font-family: Trebuchet, sans-serif;
+								color: white;
+								background: transparent;
+								border:none;
+								width:80px;
+								font-size: 12px;
+								font-weight: 300;
+								text-shadow: 1px 1px 1px #000;
+							}
+
+							input[type="submit"] {
+								background: url("header/search.png") no-repeat;
+								cursor: pointer;
+								border: none;
+								height:18px;
+								width:35px;
+							}
+						}
+					}
+
+					.middle-item {
+						cursor: pointer;
+						text-align: center;
+						height: 30px;
+						width: 129px;
+						background-image: url("header/menu_middle.png");
+
+						&:hover {
+							background-image: url("header/menu_middle_hover.png");
+						}
+					}
+
+					.menu-item {
+						float: left;
+						margin-left: 20px;
+
+						span {
+							position: relative;
+							top:5px;
+							left: 0;
+							font-size: 12px;
+							font-weight: 300;
+						}
+
+						&:first-child {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#body {
+		height: 100%;
+		padding-bottom: 150px;
+	}
+
+	#footer {
+		z-index: 10000;
+		background-color: #15133A;
+		border-top: 1px solid #242166;
+		position:absolute;
+		bottom:0;
+		width:100%;
+		height: 120px;
+		
+		#just-above-footer {
+			position: relative;
+			top: -6px;
+			
+			#just-above-footer1 {
+				border-top: 1px solid #44382E;
+				position:relative;
+				height:1px;
+			}
+
+			#just-above-footer2 {
+				border-top: 1px solid #302720;
+				position:relative;
+				top: 1px;
+				height: 1px;
+			}
+
+			#just-above-footer3 {
+				border-top: 1px solid #231C17;
+				position:relative;
+				top: 2px;
+				height: 1px;
+			}
+		}
+		
+		#bottom-orange-bar {
+			position: relative;
+			top: 84px;
+			background-image: url("footer/gradient.png");
+			background-repeat: repeat-x;
+			height: 30px;
+			
+			#gummo {
+				margin-left: auto;
+				margin-right: auto;
+				position: relative;
+				top: 8px;
+				width: 249px;
+				font-size: 10px;
+				font-weight: 300;
+				
+				a {font-weight: 700;}
+			}
+		}
+		
+		.content {
+			top: 10px;
+			width: 1000px;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			
+			.logo {
+				position:absolute;
+				left: 0px;
+				
+				img { height: 60px; }
+			}
+			
+			#address {
+				font-size: 12px;
+				position:absolute;
+				right: 0;
+			}
+		}
+	}
+}
+
+
+img {border-style: none;}
+
+@import "home_pages.css.scss";
+@import "products.css.scss";
+@import "sessions.css.scss";
+@import "subscriptions.css.scss";
+@import "users.css.scss";

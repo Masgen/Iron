@@ -1,0 +1,6 @@
+$('#search-results').append("<%= j render(partial: 'search_results', locals: {results: @results}) %>");
+<% if @results.next_page %>
+	$('#will-paginate-container').html('<%= j will_paginate(@results, page_links: false, container: false, next_label: content_tag(:div,"DEVAM")) %>');
+<% else %>
+	$('#will-paginate-container').remove();
+<% end %>

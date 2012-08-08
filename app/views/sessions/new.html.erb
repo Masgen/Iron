@@ -1,0 +1,17 @@
+<%= content_tag :div, "Giriş", id: "heading" %><br />
+
+<%= content_tag :div, id: "login" do %>
+	<%= form_tag sessions_path, method: :post do %>
+		<%= content_tag :div, class: "field" do %>
+			<%= label_tag :nickname, "Kullanıcı Adı:" %><br />
+			<%= text_field_tag :nickname %>
+		<% end %>
+		<%= content_tag :div, class: "field" do %>
+			<%= label_tag :password, "Şifre:" %><br />
+			<%= password_field_tag :password %>
+		<% end %>
+		<%= content_tag :div, class: "action" do %>
+			<%= submit_tag "Giriş yap" %>
+		<% end %>
+	<% end %>
+<% end %>

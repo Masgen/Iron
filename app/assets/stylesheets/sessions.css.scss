@@ -1,0 +1,15 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sessions-controller {
+	form {
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		width: 200px;
+		
+		input[type="text"] { border: 1px solid black; width: 200px;}
+		input[type="password"] { border: 1px solid black; width: 200px;}
+	}
+}

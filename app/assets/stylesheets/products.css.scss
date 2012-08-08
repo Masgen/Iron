@@ -1,0 +1,350 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#products-controller {
+	
+	.email-image {
+		position: absolute;
+		top: 0;
+	}
+	
+	#search-title-wrapper {
+		position: relative;
+		float: left;
+		left: 50%;
+		
+		#search-title {
+			position: relative;
+			height: 26px;
+			float: left;
+			left: -50%;
+		
+			img {
+				position: relative;
+				float: left;
+				display: inline;
+				-webkit-box-shadow: 0 8px 6px -6px black;
+				-moz-box-shadow: 0 8px 6px -6px black;
+				box-shadow: 0 8px 6px -6px black;
+			}
+		
+			div#outer {
+				float:left;
+				-webkit-box-shadow: 0 8px 6px -6px black;
+				-moz-box-shadow: 0 8px 6px -6px black;
+				box-shadow: 0 8px 6px -6px black;
+				
+				
+				span#inner {
+					padding-top: 5px;
+					position: relative;
+					background-image: url("products/ust_bar_alt_bg.png");
+					background-repeat: repeat-x;
+					float:left;
+					height: 32px;
+					-webkit-box-shadow: 0 8px 6px -6px black;
+					-moz-box-shadow: 0 8px 6px -6px black;
+					box-shadow: 0 8px 6px -6px black;
+
+					span#content {
+						text-shadow: 1px 1px 1px #000;
+						padding-top:3px;
+						height: 26px;
+						position: relative;
+						z-index: 1000;
+						background-image: url("products/ust_bar_bg.png");
+						background-repeat: repeat-x;
+						float:left;
+					}
+				}
+			}
+		}
+	}
+	
+	.previous_page {display:none;}
+	
+	#will-paginate-container {
+		padding-top:20px;
+		position:relative;
+		width: 105px;
+		text-align: center;
+		margin-left:auto;
+		margin-right: auto;
+		
+		.next_page div {
+			padding-top: 5px;
+			font-size: 12px;
+			font-weight: 400;
+			text-shadow: 1px 1px 1px #000;
+			background-image: url("products/devam.png");
+			background-repeat: no-repeat;
+			width: 105px;
+			height: 22px;
+		}
+	}
+	
+	.edit-delete {
+		width: 400px;
+		text-align: center;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#name {
+		font-weight: 500;
+		font-size: 16px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 150px;
+		text-align: center;
+	}
+	
+	#game-poster, #accessory-poster {
+		width: 225px;
+	}
+	
+	.visuals {
+		padding-top: 30px;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		width:830px;
+		
+		#poster, #trailer {
+			float:left;
+		}
+		
+		#trailer {
+			padding-left: 30px;
+		}
+	}
+	
+	#genre-alphabet {
+		background: url("products/alphabet_bg.png") no-repeat;
+		height:36px;
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top:10px;
+		text-shadow: 1px 1px 1px #000;
+		position: relative;
+		
+		#genre {
+			position: absolute;
+			float:left;
+			padding-left: 60px;
+		}
+		
+		#alphabet {
+			position: absolute;
+			left: 170px;
+			float: left;
+
+			.letter {
+				padding-left: 10px;
+			}
+		}
+	}
+	
+	#no-products { position: relative; width: 800px; text-align: center; margin-top:50px; margin-left: auto; margin-right: auto;}
+	
+	#results-wrapper {
+		padding-top: 50px;
+		top: 30px;
+		width:890px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		
+		#no-results {
+			text-align: center; 
+			text-shadow: 1px 1px 1px black; 
+			font-size: 16px;
+		}
+		
+		#top {
+			background: url("products/search_top.png") no-repeat 0 0;
+			width: 890px;
+			height:86px;
+			position: relative;
+		}
+		
+		#bottom {
+			top: -5px;
+			position: relative;
+			background: url("products/search_bottom.png") no-repeat 0 0;
+			width: 890px;
+			height:86px;
+			margin-bottom:10px;
+		}
+		
+		#search-results {
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			top: -5px;
+			z-index: 1000;
+			background: url("products/search_bg.png") repeat-y;
+			position: relative;
+
+			.result {
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+				position: relative;
+				padding-bottom:10px;
+				margin-bottom: 25px;
+				border-bottom: 1px orange solid;
+
+				&:last-child {
+					border: 0;
+					padding-bottom: 0;
+					margin-bottom: 0;
+				}
+
+				.visual {
+					float:left;
+				}
+
+				.name-summary {
+					position: relative;
+
+					.name-year {
+						padding-left: 80px;
+						padding-top: 35px;
+						padding-bottom: 10px;
+						color: orange;
+						font-size: 16px;
+
+						a {
+							color: orange;
+						}
+					}
+
+					.summary {
+						padding-left: 80px;
+						font-size: 12px;
+					}	
+				}
+			}
+		}
+	}
+	
+	.product-row {
+		width:820px;
+		margin-left: auto;
+		margin-right:auto;
+		position:relative;
+		padding-top: 30px;
+		
+		.product {
+			margin-left: 20px;
+			position: relative;
+			width: 120px;
+			float: left;
+		
+			.visual {
+				width: 100px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		
+			.title {
+				text-align: center;
+				font-size:10px;
+			}
+			
+			&:first-child { margin-left: 0;}
+		}	
+	}
+	
+	#info {
+		margin-top: 20px;
+		position: relative;
+		width: 830px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+		
+		#bg {
+			z-index: 10;
+			position: absolute;
+			height: 120%;
+			min-height: 100px;
+			width:830px;
+		}
+		
+		#info-lines {
+			position:relative;
+			padding-top: 30px;
+			.info-line {
+				position: relative;
+				z-index: 100000;
+				padding-top: 5px;
+				width: 710px;
+				text-align: center;
+				margin-left:auto;
+				margin-right: auto;
+
+				.info-pair {
+					padding-left: 10px;
+
+					.key {
+
+						color: orange;
+						margin-left: 30px;
+
+						&:first-child {
+							margin-left: 0;
+						}
+					}
+
+					.overscore {text-decoration: line-through;}	
+				}
+			}
+		}
+	}
+	
+	form {
+		width:1000px;
+		position:relative;
+		margin-left:auto;
+		margin-right: auto;
+		padding-bottom: 30px;
+		
+		.field {
+			width: 400px;
+			margin-left:auto;
+			margin-right: auto;
+			padding-top: 15px;
+			
+			.mini-loader {
+				background-color: black;
+				-moz-opacity:.90; filter:alpha(opacity=90); opacity:.90;
+				-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;
+				height: 20px;
+				width: 20px;
+				top: 3px;
+				position:relative;
+				padding-left: 5px;
+			}
+
+			input[type="text"] {
+				border: black 1px solid;
+				width:300px;
+				font-size: 14px;
+			}
+
+			textarea {
+				font-size: 14px;
+				height: 150px;
+			}
+			
+			label {
+				color: orange;
+				font-weight: 400;
+			}
+		}
+	}
+}

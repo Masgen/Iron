@@ -1,0 +1,33 @@
+<%= content_tag :div, id: "search-title-wrapper" do %>
+	<%= content_tag :div, id: "search-title" do %>
+		<%= content_tag :div, id: "outer" do %>
+			<%= image_tag "products/ust_bar_alt_sol.png", id: "bg-bottom-left" %>
+			<%= content_tag :span, id:"inner" do %>
+				<%= image_tag "products/ust_bar_ust_sol.png", id: "bg-top-left" %>
+				<%= content_tag :span, "\'#{truncate(UnicodeUtils.upcase(@search,:tr), length: 20)}\' İÇİN ARAMA SONUÇLARI", id: "content" %>
+				<%= image_tag "products/ust_bar_ust_sag.png", id: "bg-top-right" %>
+				<%= content_tag :div, "", class: "cleaner" %>
+			<% end %>
+			<%= image_tag "products/ust_bar_alt_sag.png", id: "bg-bottom-left" %>
+			<%= content_tag :div, "", class: "cleaner" %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, "", class: "cleaner"%>
+<% end %>
+<%= content_tag :div, "", class: "cleaner"%>
+
+<%= content_tag :div, id: "results-wrapper" do %>
+	<%= content_tag :div, "", id: "top" %>
+	<%= content_tag :div, id: "search-results" do %>
+		<% unless @results.blank? %>
+			<%= render partial: "search_results", locals: {results: @results} %>
+		<% else %>
+			<%= content_tag :div,  "Aradığınız kriter için hiçbir sonuç bulunamadı.", id: "no-results" %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, "", id: "bottom"%>
+<% end %>
+
+<%= content_tag :div, id: "will-paginate-container" do %>
+	<%= will_paginate @results, page_links: false, container: false, next_label: content_tag(:div,"DEVAM") %>
+<% end %>

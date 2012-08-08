@@ -1,0 +1,6 @@
+$('#products').append("<%= j render(partial: 'products', locals: {products: @products}) %>");
+<% if @products.next_page %>
+	$('#will-paginate-container').html('<%= will_paginate @products, page_links: false, container: false, next_label: content_tag(:div,"DEVAM") %>');
+<% else %>
+	$('#will-paginate-container').remove();
+<% end %>

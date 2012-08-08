@@ -1,0 +1,15 @@
+<% results.each do |result| %>
+	<% unless result == nil %>
+		<%= content_tag :div, class: "result" do %>
+			<%= content_tag :span, link_to(image_tag(result.poster_url(:smallest).to_s), product_path(result.id)), class: "visual" %>
+			<%= content_tag :span, class: "name-summary" do %>
+				<%= content_tag :div, class: "name-year" do %>
+					<%= link_to result.title, product_path(result.id) %>
+					<%= " (#{result.year.year})" unless result.year.blank?%>
+				<% end %>
+				<%= content_tag :div, truncate(result.summary, length: 200),class: "summary" %>
+			<% end %>
+			<%= content_tag :div, "", class: "cleaner" %>
+		<% end %>
+	<% end %>
+<% end %>

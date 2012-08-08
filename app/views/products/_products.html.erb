@@ -1,0 +1,11 @@
+<% products.in_groups_of(6, false) do |group| %>
+	<%= content_tag :div, class: "product-row" do %>
+		<% group.each do |product| %>
+			<%= content_tag :div, class: "product" do %>
+				<%= content_tag :div, link_to(image_tag(product.poster_url(:thumb).to_s), product_path(product.id)), class: "visual" %>
+				<%= content_tag :div, link_to(UnicodeUtils.upcase(product.title,:tr), product_path(product.id)), class: "title" %>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, "", class: "cleaner" %>
+	<% end %>
+<% end %>

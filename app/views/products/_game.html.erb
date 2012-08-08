@@ -1,0 +1,56 @@
+<%= content_tag :div, id: "movie" do %>
+	<%= content_tag :div, id: "search-title-wrapper" do %>
+		<%= content_tag :div, id: "search-title" do %>
+			<%= content_tag :div, id: "outer" do %>
+				<%= image_tag "products/ust_bar_alt_sol.png", id: "bg-bottom-left" %>
+				<%= content_tag :span, id:"inner" do %>
+					<%= image_tag "products/ust_bar_ust_sol.png", id: "bg-top-left" %>
+					<%= content_tag :span, UnicodeUtils.upcase(product.title, :tr), id: "content" %>
+					<%= image_tag "products/ust_bar_ust_sag.png", id: "bg-top-right" %>
+					<%= content_tag :div, "", class: "cleaner" %>
+				<% end %>
+				<%= image_tag "products/ust_bar_alt_sag.png", id: "bg-bottom-left" %>
+				<%= content_tag :div, "", class: "cleaner" %>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, "", class: "cleaner"%>
+	<% end %>
+	<%= content_tag :div, "", class: "cleaner"%>
+	<% if current_user %>
+		<%= content_tag :p, class: "edit-delete" do %>
+			<%= link_to "Ürünü Düzenle", edit_product_path(id: product.id, type: product.product_type), class: "underlined" %> - <%= link_to "Ürünü Sil", product_path(product.id), method: :delete, confirm: "Silmek istediğinize emin misiniz?", class: "underlined"%>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, id: "game-poster" ,class: "visuals" do %>
+		<%= content_tag :div, image_tag(product.poster_url(:movie_profile).to_s), id: "poster" %>
+		<%= content_tag :div, "", class: "cleaner"%>
+	<% end %>
+	<%= content_tag :div, id: "info" do %>
+		<%= image_tag "products/info_bg.png", id: "bg" %>
+		<%= content_tag :div, id: "info-lines" do %>
+			<%= content_tag :div, class: "info-line" do %>
+				<%= content_tag :span, class: "info-pair" do %>
+					<%= content_tag :span, "Fiyat:" ,class: "key" %>
+					<%= content_tag :span, class: "value" do %>
+						<% if product.discount_price.blank? %>
+							<%= number_to_currency(product.normal_price, unit: "TL", precision: 2, format: "%n %u") %>
+						<% else %>
+							<%= content_tag :span, number_to_currency(product.normal_price, unit: "TL", precision: 2, format: "%n %u"), class: "overscore" %> 
+							<%= number_to_currency(product.discount_price, unit: "TL", precision: 2, format: "%n %u") %>
+						<% end %>
+					<% end %>
+				<% end %>
+				<% unless product.year.blank? %>
+					<%= content_tag :span, class: "info-pair" do %>
+						<%= content_tag :span, "Sene:", class: "key" %> <%= content_tag :span, product.year.year, class: "value" %>
+					<% end %>
+				<% end %>
+			<% end %>
+			<%= content_tag :div, class: "info-line" do %>
+				<%= content_tag :span, class: "info-pair" do %>
+					<%= content_tag :span, "Konu:", class: "key" %> <%= content_tag :span, product.summary, class: "value" %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

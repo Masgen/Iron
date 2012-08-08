@@ -1,0 +1,27 @@
+// Place all the styles related to the subscriptions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#subscriptions-controller {
+	
+	table {
+		position: relative;
+		width: 300px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		
+		td {
+			background-color: orange;
+			text-shadow: 1px 1px 1px #fff;
+			color: black;
+		}
+		
+		td.new {
+			background-color: green;
+			color: white;
+			text-shadow: 1px 1px 1px #000;
+		}
+	}
+}

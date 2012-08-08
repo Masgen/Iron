@@ -1,0 +1,26 @@
+<%= content_tag :div, id: "genre-alphabet" do %>
+	<%= content_tag :div, id: "genre" do %>
+		<% if @genre.blank? %>
+			<%= (@type == "game") ? "Oyunlar" : "Aksesuarlar" %>
+		<% else %>
+			<%= @genre.is_a?(String) ? @genre : @genre.screen_name %>
+		<% end %>
+	<% end %>
+	
+	<%= content_tag :div, id: "alphabet" do %>
+		<%= alphabet_helper(params[:initial]) %>
+	<% end %>
+	<%= content_tag :div, "", class: "cleaner"%>
+<% end %>
+
+<%= content_tag :div, id: "products" do %>
+	<% if @products.any? %>
+		<%= render partial: "products", locals: {products: @products}%>
+	<% else %>
+		<%= content_tag :div, "Aradığınız kategoride '#{UnicodeUtils.upcase(@initial,:tr)}' harfiyle başlayan ürün bulunamadı.", id: "no-products" %>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, id: "will-paginate-container" do %>
+	<%= will_paginate @products, page_links: false, container: false, next_label: content_tag(:div,"DEVAM") %>
+<% end %>

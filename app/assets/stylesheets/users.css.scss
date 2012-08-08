@@ -1,0 +1,14 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#users-controller {
+	
+	.edit_user {
+		width: 350px; position: relative; margin: 0 auto 0 auto;
+		
+		.field {
+			margin-bottom:20px;
+		}
+	}
+}

@@ -1,0 +1,107 @@
+<% if current_user %>
+	<%= content_tag :div, id:"administration-links" do %>
+		<%= content_tag :span, id: "adminstrate" do %>
+			<%= link_to "Yönetim", administrate_home_page_path %>
+		<% end %> | 
+		
+		<%= content_tag :span, id: "logout" do %>
+			<%= link_to "Çıkış Yap", logout_path %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, id: "new-products" do %>
+	<%= content_tag :div, id: "new-movie-trailer" do %>
+		<% if movie_trailer = trailer_helper(@trailer_movie.trailer_url) %>
+			<%= movie_trailer.html_safe if @trailer_movie %>
+		<% else %>
+			<%= content_tag :div, "Fragman şu anda gösterilemiyor.", style: "height:185px;font-size: 20px;width:555px;text-align:center;padding-top:150px;position:relative;"%>
+		<% end %>
+		<%= content_tag :div, id: "info" do %>
+			<%= content_tag :div, link_to(@trailer_movie.title, product_path(@trailer_movie.id))  if @trailer_movie %>
+			<%= content_tag :div, class: "cast" do %>
+				<%= content_tag :span, "Yönetmen: #{cast_helper(@trailer_movie.director, 2)}".html_safe if @trailer_movie %>
+				<%= content_tag :span, "Oyuncular: #{cast_helper(@trailer_movie.actors, 3)}".html_safe if @trailer_movie %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, id: "new-products-slides" do %>
+		<%= content_tag :div, id: "inner" do %>
+			<%= content_tag :div, id: "limit" do %>
+				<% if @new_releases %>
+					<% @new_releases.each do |new_release| %>
+						<%= content_tag :div, class: "single-slide" do %>
+							<%= content_tag :div, link_to(image_tag(new_release.poster_url(:slide).to_s), product_path(new_release.id)), class: "poster" if new_release %>
+							<%= content_tag :div, class: "new-release-info" do %>
+								<% if new_release.product_type == "movie" %>
+									<%= content_tag :div, class: "movie" do %>
+										<%= content_tag :div, class: "text" do %>
+											<%= content_tag :div, link_to(new_release.title, product_path(new_release.id)), class: "name" if new_release %>
+											<%= content_tag :div, class: "cast" do %>
+												<%= content_tag :div, "Yönetmen: #{cast_helper(new_release.director, 2)}".html_safe, class: "director" if new_release %>
+												<%= content_tag :div, "Oyuncular: #{cast_helper(new_release.actors, 3)}".html_safe if new_release %>
+											<% end %>
+										<% end %>
+									<% end %>
+								<% else %>
+									<%= content_tag :div, class: "game-or-accessory" do %>
+										<%= content_tag :div, new_release.title, class: "name" if new_release %>
+									<% end %>
+								<% end %>
+							<% end %>
+						<% end %>
+					<% end %>
+					<%= content_tag :div, "", class: "cleaner"%>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, "", class: "cleaner"%>
+	<%= content_tag :div, User.first.title_omega, id: "new-releases-title" %>
+<% end %>
+<%= content_tag :div, id: "future-releases-wrapper" do %>
+	<%= content_tag :div, id: "future-releases" do %>
+		<%= content_tag :div, User.first.title_alpha, id: "title-top"%>
+		<%= content_tag :div, class: "limit-wrapper" do %>
+			<%= content_tag :div, class: "limit", counter: "0" do %>
+				<% if @future_releases %>
+					<% @future_releases.each do |future_release| %>
+						<%= content_tag :div, link_to(image_tag(future_release.poster_url(:thumb).to_s), product_path(future_release.id)), class: "slide" if future_release %>
+					<% end %>
+					<%= content_tag :div, "", class: "cleaner" %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, image_tag("home_page/left.png"), class: "left", style: "display:none;" %>
+		<%= content_tag :div, image_tag("home_page/right.png"), class: "right" %>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, id: "discounted-movie-wrapper" do %>
+	<%= content_tag :div, id: "discounted-movies" do %>
+		<%= content_tag :div, class: "limit-wrapper" do %>
+			<%= content_tag :div, class: "limit", counter: "0" do %>
+				<% if @opportunities %>
+					<% @opportunities.each do |opportunity| %>
+						<%= content_tag :div, link_to(image_tag(opportunity.poster_url(:thumb).to_s), product_path(opportunity.id)), class: "slide" if opportunity %>
+					<% end %>
+					<%= content_tag :div, "", class: "cleaner" %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<%= content_tag :div, image_tag("home_page/left.png"), class: "left", style: "display: none;" %>
+		<%= content_tag :div, image_tag("home_page/right.png"), class: "right" %>
+		<%= content_tag :div, User.first.title_beta, id: "title-bottom"%>
+	<% end %>
+<% end %>
+
+<%= content_tag :div, id: "subscription-wrapper" do %>
+	<%= content_tag :div, id: "subscription", method: :post do %>
+		<%= content_tag :div, "HABERDAR OL", id: "subscribe" %>
+		<%= form_tag subscriptions_path do %>
+			<%= text_field_tag :email, "Email" %>
+			<%= submit_tag "" %>
+		<% end %>
+	<% end %>
+	<%= content_tag :div, "", class: "cleaner"%>
+<% end %>

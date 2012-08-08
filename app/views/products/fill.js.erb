@@ -1,0 +1,68 @@
+$(document).ready(function() {
+	<% if @info.blank? %>
+		$(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+	<% else %>
+		<% if @info[:name] %>
+			$("#product_title").val("<%= @info[:name] %>");
+			$("#product_title").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_title").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:imdb_score] %>
+			$("#product_imdb_score").val("<%= @info[:imdb_score] %>");
+			$("#product_imdb_score").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_imdb_score").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:year] %>
+			$(<%= "'option[value=#{@info[:year]}]'" %>).attr("selected","selected");
+			$("#product_year_1i").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_year_1i").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:directors] %>
+			$("#product_director").val("<%= @info[:directors].join(', ') %>");
+			$("#product_director").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_director").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:actors] %>
+			$("#product_actors").val("<%= @info[:actors].join(', ') %>");
+			$("#product_actors").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_actors").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:poster_url] %>
+			$("#product_remote_poster_url").val("<%= @info[:poster_url] %>");
+			$("#product_poster").attr("disabled","disabled");
+			$("#product_poster").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_poster").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:trailer_url] %>
+			$("#product_trailer_url").val("<%= @info[:trailer_url] %>");
+			$("#product_trailer_url").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_trailer_url").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if @info[:duration] %>
+			$("#product_duration").val("<%= @info[:duration] %>");
+			$("#product_duration").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_duration").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% end %>
+		<% if @info[:summary] %>
+			var value = "<%= @info[:summary] %>".replace(/&.{1,6};/gi,"");
+			$("#product_summary").val(value);
+			$("#product_summary").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+		<% else %>
+			$("#product_summary").parent().find(".mini-loader img").replaceWith("<img src='/assets/products/x.png' />");
+		<% end %>
+		<% if categories = @info[:categories] %>
+			<% categories.each do |category| %>
+				$("input#category_<%= category %>").prop("checked", true);
+			<% end %>
+		<% end %>
+		$("form.fill-fields .mini-loader img").replaceWith("<img src='/assets/products/tick.png' />");
+	<% end %>
+});

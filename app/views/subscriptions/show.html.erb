@@ -1,0 +1,18 @@
+<%= content_tag :div, "Abonelikler", id: "heading" %>
+<%= content_tag :div, link_to("Yönetim sayfasına geri dön", administrate_home_page_path), id: "back-to-administration", class: "underlined" %>
+
+
+<%= content_tag :div, id: "subscriptions" do %>
+	<%= content_tag :table do %>
+		<%= content_tag :tr do %>
+			<%= content_tag :th, "Email Adresleri" %>
+		<% end %>
+		<% unless @subscriptions.blank? %>
+			<% @subscriptions.each do |subscription| %>
+				<%= content_tag :tr do %>
+					<%= new_subscription_helper(subscription) %>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

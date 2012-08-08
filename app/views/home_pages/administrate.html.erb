@@ -1,0 +1,31 @@
+<%= content_tag :div, id: "administration" do %>
+	<%= content_tag :div, id: "add-new-movie" do %>
+		<%= link_to "Yeni film ekle", new_product_path(type: "movie") %>
+	<% end %>
+	<%= content_tag :div, id: "add-new-accessories" do %>
+		<%= link_to "Yeni aksesuar ekle", new_product_path(type: "accessory") %>
+	<% end %>
+	<%= content_tag :div, id: "add-new-game" do %>
+		<%= link_to "Yeni oyun ekle", new_product_path(type: "game") %>
+	<% end %>
+
+	<%= content_tag :div, id: "manage-new-releases" do %>
+		<%= link_to "Yeni çıkanlar", manage_home_page_path(what: "new_releases") %>
+	<% end %>
+
+	<%= content_tag :div, id: "manage-opportunities" do %>
+		<%= link_to "Fırsatlar", manage_home_page_path(what: "opportunities") %>
+	<% end %>
+
+	<%= content_tag :div, id: "manage-future-releases" do %>
+		<%= link_to "Yakında vizyona girecek filmler", manage_home_page_path(what: "coming_up") %>
+	<% end %>
+
+	<%= content_tag :div, id: "manage-subscriptions" do %>
+		<%= link_to "Abonelikler", subscriptions_path %>
+	<% end %>
+	
+	<%= content_tag :div, id: "manage-names" do %>
+		<%= link_to "Slide İsimleri", edit_user_path %>
+	<% end %>
+<% end %>
