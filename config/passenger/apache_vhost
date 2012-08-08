@@ -16,8 +16,8 @@
             Options -MultiViews
         </Directory>
 
-        CustomLog /var/log/apache2/iron-access.log combined
-        ErrorLog /var/log/apache2/iron-error.log
+        CustomLog /var/log/apache2/irond-access.log combined
+        ErrorLog /var/log/apache2/irond-error.log
 	  
         RackEnv production
         RailsEnv production
