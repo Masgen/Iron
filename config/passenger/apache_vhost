@@ -1,0 +1,48 @@
+<IfModule passenger_module> 
+    <VirtualHost *:80>
+
+        ServerName 50.57.122.69
+        ServerAlias www.50.57.122.69
+
+        # Redirect to canonical hostname
+        RewriteEngine On
+        RewriteCond %{HTTP_HOST}    !^50\.57\.122\.69 [NC]
+        RewriteCond %{HTTP_HOST}    !^$
+        RewriteRule ^/?(.*)         http://50.57.122.69/$1 [L,R=301,NE]
+
+        DocumentRoot /home/deployer/apps/irond/current/public
+        <Directory /home/deployer/apps/irond/current/public>
+            Allow from all
+            Options -MultiViews
+        </Directory>
+
+        CustomLog /var/log/apache2/iron-access.log combined
+        ErrorLog /var/log/apache2/iron-error.log
+	  
+        RackEnv production
+        RailsEnv production
+
+        # Enable caching of assets containing a fingerprint
+        # Browsers need never check for newer versions of an
+        # asset because the fingerprint would be different.
+        <FilesMatch "/assets/[^.]+-[a-z0-9]{32}\.">
+            # Add far-future expiration dates
+            <IfModule mod_expires.c>
+                ExpiresActive On
+                ExpiresDefault "access plus 10 years"
+            </IfModule>
+            # Disable ETags
+            <IfModule mod_expires.c>
+                Header unset "ETag"
+            </IfModule>
+        </FilesMatch>
+
+        # Check for maintenance file and redirect all requests
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !\.(css|jpg|png|gif)$
+        RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+        RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+        RewriteRule ^.*$ /system/maintenance.html [L]
+
+    </VirtualHost>
+</IfModule>
