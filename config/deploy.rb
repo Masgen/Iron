@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require 'thinking_sphinx/deploy/capistrano'
 
 server "50.57.122.69", :web, :app, :db, primary: true
 
@@ -66,8 +67,6 @@ namespace :deploy do
   before 'deploy:update_code', 'thinking_sphinx:stop'
   after 'deploy:update_code', 'deploy:activate_sphinx'
 end
-
-require 'thinking_sphinx/deploy/capistrano'
 
 # Thinking Sphinx typing shortcuts
 namespace :ts do
