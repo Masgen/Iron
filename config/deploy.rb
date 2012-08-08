@@ -2,9 +2,9 @@ require "bundler/capistrano"
 
 server "50.57.122.69", :web, :app, :db, primary: true
 
-set :application, "irond"
+set :application, "iron"
 set :user, "deployer"
-set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_to, "/home/#{user}/apps/#{application}d"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
