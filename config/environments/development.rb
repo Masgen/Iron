@@ -5,6 +5,8 @@ Irond::Application.configure do
   
   API_KEY = {tmdb: "e22228762aa1c95359b3d2a709c9d9f5"}
   
+  API_KEY_PRODUCTION = {tmdb: "e26d1fbe62d051f5c659e2bc27ae6726"}
+  
   GENRES_HASH = {
     "Action"              => "adventure",
     "Action & Adventure"  => "adventure",

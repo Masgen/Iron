@@ -16,3 +16,5 @@
 
 /config/database.yml
 /public/uploads/*
+/config/environments/development.rb
+/config/environments/production.rb
