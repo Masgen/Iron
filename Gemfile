@@ -48,6 +48,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
+gem 'deprec'
 
 # To use debugger
 # gem 'debugger'

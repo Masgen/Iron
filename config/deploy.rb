@@ -2,14 +2,14 @@ require "bundler/capistrano"
 
 server "50.57.122.69", :web, :app, :db, primary: true
 
-set :application, "iron"
+set :application, "irond"
 set :user, "deployer"
-set :deploy_to, "/home/#{user}/apps/#{application}d"
+set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:masgen/#{application}.git"
+set :repository, "git@github.com:masgen/iron.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
@@ -21,13 +21,13 @@ namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application}d #{command}"
+      run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
 
   task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}d"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}d"
+    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     put File.read("config/environments/production.clean.rb"), "#{shared_path}/config/environments/production.rb"
