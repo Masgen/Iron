@@ -1,5 +1,4 @@
 require "bundler/capistrano"
-require 'thinking_sphinx/deploy/capistrano'
 
 server "50.57.122.69", :web, :app, :db, primary: true
 
@@ -52,7 +51,14 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
-  
+end
+
+require 'thinking_sphinx/deploy/capistrano'
+
+# http://github.com/jamis/capistrano/blob/master/lib/capistrano/recipes/deploy.rb
+# :default -> update, restart
+# :update  -> update_code, symlink
+namespace :deploy do
   desc "Link up Sphinx's indexes."
   task :symlink_sphinx_indexes, :roles => [:app] do
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
@@ -66,26 +72,4 @@ namespace :deploy do
 
   before 'deploy:update_code', 'thinking_sphinx:stop'
   after 'deploy:update_code', 'deploy:activate_sphinx'
-end
-
-# Thinking Sphinx typing shortcuts
-namespace :ts do
-  task :conf do
-    thinking_sphinx.configure
-  end
-  task :in do
-    thinking_sphinx.index
-  end
-  task :start do
-    thinking_sphinx.start
-  end
-  task :stop do
-    thinking_sphinx.stop
-  end
-  task :restart do
-    thinking_sphinx.restart
-  end
-  task :rebuild do
-    thinking_sphinx.rebuild
-  end
 end
