@@ -1,3 +1,4 @@
 production:
     pid_file: /home/deployer/apps/irond/shared/tmp/search.pid
     searchd_file_path: /home/deployer/apps/irond/shared/db/sphinx
+    bin_path: /root/sphinx-2.0.5-release/api/ruby/lib/sphinx
