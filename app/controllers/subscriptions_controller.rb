@@ -1,4 +1,4 @@
-#encoding: utf-8
+# encoding: utf-8
 class SubscriptionsController < ApplicationController
   before_filter :authenticate, only: [:show]
   
@@ -10,9 +10,9 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new
     @subscription.email = params[:email]
     if @subscription.save
-      redirect_to root_path, notice: "Mail listesine başarıyla kaydoldunuz."
+      redirect_to root_path
     else
-      render root_path
+      redirect_to root_path
     end
   end
 end

@@ -98,7 +98,7 @@
 <%= content_tag :div, id: "subscription-wrapper" do %>
 	<%= content_tag :div, id: "subscription", method: :post do %>
 		<%= content_tag :div, "HABERDAR OL", id: "subscribe" %>
-		<%= form_tag subscriptions_path do %>
+		<%= form_tag subscriptions_path, method: :post do %>
 			<%= text_field_tag :email, "Email" %>
 			<%= submit_tag "" %>
 		<% end %>
