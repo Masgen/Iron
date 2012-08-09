@@ -17,13 +17,9 @@
 $(document).ready(function() {
 	$("#search-link input:text").focus(function() {
 		$(this).val("");
-	}).blur(function() {
-		$(this).val("     ARAMA")
 	});
 	$("#subscription input:text").focus(function() {
 		$(this).val("");
-	}).blur(function() {
-		$(this).val("Email")
 	});
 	
 	$("#home-page-link, #accessories-link, #games-link").click(function() {
