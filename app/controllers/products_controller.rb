@@ -4,8 +4,17 @@ class ProductsController < ApplicationController
   respond_to :js, :html
   
   def index
-    @products = Product.by_type(params[:type]).by_initial(params[:initial]) 
+    # type filter
+    @products = Product.by_type(params[:type])
     @type = params[:type]
+    
+    # initial filter
+    unless params[:initial].blank?
+      @products = @products.by_initial(params[:initial]) 
+      @initial = params[:initial]
+    end
+    
+    # genre filter
     unless params[:genre].blank?
       if params[:genre] == "blue"
         @products = @products.blue
@@ -15,8 +24,9 @@ class ProductsController < ApplicationController
         @genre = Category.find_by_title(params[:genre])
       end
     end
+
+    # pagination
     @products = @products.paginate(page: params[:page], per_page: 18)
-    @initial = params[:initial]
   end
   
   def search

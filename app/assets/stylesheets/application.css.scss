@@ -144,9 +144,9 @@ html, body {
 						border-bottom-right-radius: 5px;
 						border-bottom-left-radius: 5px;
 						
-						-moz-opacity: 0.80;
-						opacity: 0.80;
-						filter: alpha(opacity=80);
+						-moz-opacity: 0.85;
+						opacity: 0.85;
+						filter: alpha(opacity=85);
 						
 						li {
 							float: none;
@@ -161,6 +161,7 @@ html, body {
 					}
 					
 					#genres-link:hover {
+						z-index:1000000;
 						
 						ul {
 							left: 221px;
@@ -168,7 +169,7 @@ html, body {
 						}
 						
 						li {
-							font-weight: 400;
+							font-weight: 700;
 							margin: 3px 5px 0 5px;
 							padding-bottom: 3px;
 							border-bottom: 1px solid black;
@@ -177,15 +178,19 @@ html, body {
 							&:first-child {margin-top: 0;}
 							&:last-child {border: 0;}
 							
-							a {	text-shadow: 0 0 0 #000}
+							z-index:1000000;
+							a {	text-shadow: 0 0 0 #000; z-index:1000000;}
 						}
 						
 						a {
 							text-decoration:underline;
+							z-index:1000000;
+							font-size: 10px;
 						}
 						
 						ul a {
 							text-decoration:none;
+							z-index:1000000;
 						}
 					}
 					
@@ -339,7 +344,10 @@ html, body {
 			}
 			
 			#address {
+				overflow: none;
+				height:70px;
 				font-size: 12px;
+				width: 140px;
 				position:absolute;
 				right: 0;
 			}

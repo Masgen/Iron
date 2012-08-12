@@ -17,6 +17,9 @@
 $(document).ready(function() {
 	$("#search-link input:text").focus(function() {
 		$(this).val("");
+		$(this).css({"background":"white",
+					 "color":"black",
+					 "text-shadow":"none"});
 	});
 	$("#subscription input:text").focus(function() {
 		$(this).val("");

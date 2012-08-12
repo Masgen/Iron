@@ -25,48 +25,51 @@
 								<%= content_tag(:div, content_tag(:span, "TÜRLER"), id: "sub-menu-header", class: "middle-item") %>
 								<%= content_tag :ul, class: "sub-menu" do %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("BLUE RAY", products_path(type: "movie", genre: "blue", initial: "a")) %>
+										<%= link_to("BLUE RAY", products_path(type: "movie", genre: "blue")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("KORKU", products_path(type: "movie", genre: "horror", initial: "a")) %>
+										<%= link_to("KORKU", products_path(type: "movie", genre: "horror")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("GERİLİM", products_path(type: "movie", genre: "thriller", initial: "a", initial: "a")) %>
+										<%= link_to("GERİLİM", products_path(type: "movie", genre: "thriller")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("MACERA", products_path(type: "movie", genre: "adventure", initial: "a")) %>
+										<%= link_to("MACERA", products_path(type: "movie", genre: "adventure")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("KOMEDİ", products_path(type: "movie", genre: "comedy", initial: "a")) %>
+										<%= link_to("KOMEDİ", products_path(type: "movie", genre: "comedy")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("ROMANTİK", products_path(type: "movie", genre: "romance", initial: "a")) %>
+										<%= link_to("ROMANTİK", products_path(type: "movie", genre: "romance")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("DRAMA", products_path(type: "movie", genre: "drama", initial: "a")) %>
+										<%= link_to("DRAMA", products_path(type: "movie", genre: "drama")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("ÇİZGİ FİLM", products_path(type: "movie", genre: "animation", initial: "a")) %>
+										<%= link_to("ANİMASYON", products_path(type: "movie", genre: "animation")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("BELGESEL", products_path(type: "movie", genre: "documentary", initial: "a")) %>
+										<%= link_to("BELGESEL", products_path(type: "movie", genre: "documentary")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("TÜRK FİLMİ", products_path(type: "movie", genre: "turk", initial: "a")) %>
+										<%= link_to("TÜRK FİLMİ", products_path(type: "movie", genre: "turk")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("DİZİ", products_path(type: "movie", genre: "serie", initial: "a")) %>
+										<%= link_to("DİZİ", products_path(type: "movie", genre: "serie")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
-										<%= link_to("EROTİK", products_path(type: "movie", genre: "erotic", initial: "a")) %>
+										<%= link_to("EROTİK", products_path(type: "movie", genre: "erotic")) %>
 									<% end %>
 									<%= content_tag :li, class: "sub-menu-item" do %>
 										<%= link_to("BİLİM KURGU", products_path(type: "movie", genre: "science_fiction")) %>
 									<% end %>
+									<%= content_tag :li, class: "sub-menu-item" do %>
+										<%= link_to("DÜNYA SİNEMASI", products_path(type: "movie", genre: "world_cinema")) %>
+									<% end %>
 								<% end %>
 							<% end %>
-							<%= content_tag :li, content_tag(:span, link_to("OYUNLAR", products_path(type: "game", initial: "a"))), id: "games-link", class: "menu-item middle-item" %>
-							<%= content_tag :li, content_tag(:span, link_to("AKSESUARLAR", products_path(type: "accessory", initial: "a"))), id: "accessories-link", class: "menu-item middle-item" %>
+							<%= content_tag :li, content_tag(:span, link_to("OYUNLAR", products_path(type: "game"))), id: "games-link", class: "menu-item middle-item" %>
+							<%= content_tag :li, content_tag(:span, link_to("AKSESUARLAR", products_path(type: "accessory"))), id: "accessories-link", class: "menu-item middle-item" %>
 							<%= content_tag :li, id: "search-link", class: "menu-item" do %>
 								<%= form_tag search_products_path, method: :post do %>
 									<%= content_tag :span, text_field_tag(:search, "     ARAMA"), id: "search-field" %>

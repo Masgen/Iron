@@ -18,4 +18,5 @@ Category.create!([{title: "adventure", screen_name: "Macera"},
                 {title: "romance", screen_name: "Romantik"},
                 {title: "thriller", screen_name: "Gerilim"},
                 {title: "turk", screen_name: "Türk Filmi"},
-                {title: "serie", screen_name: "Dizi"}])
+                {title: "serie", screen_name: "Dizi"},
+                {title: "world_cinema", screen_name: "Dünya Sineması"}])
