@@ -16,8 +16,10 @@
 <%= content_tag :div, id: "products" do %>
 	<% if @products.any? %>
 		<%= render partial: "products", locals: {products: @products}%>
-	<% else %>
+	<% elsif @initial %>
 		<%= content_tag :div, "Aradığınız kategoride '#{UnicodeUtils.upcase(@initial,:tr)}' harfiyle başlayan ürün bulunamadı.", id: "no-products" %>
+	<% else %>
+		<%= content_tag :div, "Aradığınız kategorilere uygun ürün bulunamadı.", id: "no-products" %>
 	<% end %>
 <% end %>
 
