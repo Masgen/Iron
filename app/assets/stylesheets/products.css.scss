@@ -195,14 +195,14 @@
 				margin-left: auto;
 				margin-right: auto;
 				position: relative;
-				padding-bottom:10px;
-				margin-bottom: 25px;
-				border-bottom: 1px orange solid;
+				padding-top: 10px;
+				margin-top: 25px;
+				border-top: 1px orange solid;
 
-				&:last-child {
+				&:first-child {
 					border: 0;
-					padding-bottom: 0;
-					margin-bottom: 0;
+					padding-top:0;
+					margin-top: 0;
 				}
 
 				.visual {
@@ -211,6 +211,7 @@
 
 				.name-summary {
 					position: relative;
+					top:-5px;
 
 					.name-year {
 						padding-left: 80px;

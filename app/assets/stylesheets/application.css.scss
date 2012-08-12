@@ -126,8 +126,10 @@ html, body {
 					-webkit-box-shadow: 0 8px 6px -6px black;
 					-moz-box-shadow: 0 8px 6px -6px black;
 					box-shadow: 0 8px 6px -6px black;
+					z-index: 1000000;
 					
 					ul {
+						z-index: 1000000;
 						top: 27px;
 						position:absolute;
 						width: 114px;
@@ -146,7 +148,7 @@ html, body {
 						
 						-moz-opacity: 0.85;
 						opacity: 0.85;
-						filter: alpha(opacity=85);
+						
 						
 						li {
 							float: none;
@@ -184,7 +186,7 @@ html, body {
 						
 						a {
 							text-decoration:underline;
-							z-index:1000000;
+							z-index:100000000;
 							font-size: 10px;
 						}
 						
@@ -215,8 +217,14 @@ html, body {
 							height: 29px;
 							width: 155px;
 							background: url("header/menu_right.png") no-repeat;
+							padding: 0;
+							margin: 0;
+							position:relative;
 
 							input[type="text"] {
+								position: absolute;
+								left:20px;
+								top:5px;
 								font-family: Trebuchet, sans-serif;
 								color: white;
 								background: transparent;
@@ -231,6 +239,9 @@ html, body {
 								background: url("header/search.png") no-repeat;
 								cursor: pointer;
 								border: none;
+								position: absolute;
+								top:7px;
+								left:100px;
 								height:18px;
 								width:35px;
 							}
@@ -321,7 +332,8 @@ html, body {
 				margin-right: auto;
 				position: relative;
 				top: 8px;
-				width: 249px;
+				width: 400px;
+				text-align: center;
 				font-size: 10px;
 				font-weight: 300;
 				
@@ -349,7 +361,7 @@ html, body {
 				font-size: 12px;
 				width: 140px;
 				position:absolute;
-				right: 0;
+				right: 30px;
 			}
 		}
 	}

@@ -72,8 +72,8 @@
 							<%= content_tag :li, content_tag(:span, link_to("AKSESUARLAR", products_path(type: "accessory"))), id: "accessories-link", class: "menu-item middle-item" %>
 							<%= content_tag :li, id: "search-link", class: "menu-item" do %>
 								<%= form_tag search_products_path, method: :post do %>
-									<%= content_tag :span, text_field_tag(:search, "     ARAMA"), id: "search-field" %>
-									<%= content_tag :span, submit_tag(""), id: "search-submit" %>
+									<%= content_tag :div, text_field_tag(:search, "     ARAMA"), id: "search-field" %>
+									<%= content_tag :div, submit_tag(""), id: "search-submit" %>
 								<% end%>
 							<% end %>
 							<%= content_tag :div, "",class: "cleaner" %>

@@ -13,7 +13,7 @@
 <%= content_tag :div, id: "new-products" do %>
 	<%= content_tag :div, id: "new-movie-trailer" do %>
 		<% if @trailer_movie && movie_trailer = trailer_helper(@trailer_movie.trailer_url) %>
-			<%= movie_trailer.html_safe if @trailer_movie %>
+			<%= content_tag(:div, movie_trailer.html_safe, id: "trailer-wrapper") if @trailer_movie %>
 		<% else %>
 			<%= content_tag :div, "Fragman şu anda gösterilemiyor.", style: "height:185px;font-size: 20px;width:555px;text-align:center;padding-top:150px;position:relative;"%>
 		<% end %>
