@@ -26,7 +26,8 @@ module ApplicationHelper
   def adjust_video(video,width,height)
     if video 
       width_adjusted = video.html.gsub(/width="\d+"/,"width=\"#{width}\"")
-      all_adjusted = width_adjusted.gsub(/height="\d+"/,"height=\"#{height}\"")
+      height_adjusted = width_adjusted.gsub(/height="\d+"/,"height=\"#{height}\"")
+      all_adjusted = height_adjusted.sub(/(?<=src=")(.+)(?=" frameborder="0" allowfullscreen>)/,'\1&wmode=opaque')
       all_adjusted
     else
       false

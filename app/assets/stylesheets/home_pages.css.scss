@@ -66,6 +66,7 @@ body#home_pages-controller {
 			height: 380px;
 			background-image: url("home_page/trailer_bg.png");
 			background-repeat: repeat-y;
+			z-index: 10;
 			
 			#trailer-wrapper {
 				padding-top: 5px;
